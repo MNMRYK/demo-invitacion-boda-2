@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enlace de Elena & Mateo</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Playfair Display y Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Configuración personalizada de Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        midnight: '#1a2530',   /* Azul oscuro noche */
+                        midnightLight: '#2c3e50',
+                        gold: '#d4af37',       /* Oro viejo */
+                        goldLight: '#f1db99',
+                        rust: '#b75d69',       /* Tono teja/terracota para contrastes */
+                        sand: '#fdfbf7',       /* Fondo arena muy claro */
+                        sandDark: '#f0eade'    /* Arena un poco más oscuro para secciones */
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Montserrat"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- CSS Personalizado -->
+    <style>
+        body {
+            scroll-behavior: smooth;
+        }
+        
+        /* Línea del timeline rediseñada */
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px;
+            height: 100%;
+            background-color: #d4af37; /* Línea dorada */
+            top: 0;
+            z-index: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline-line::before {
+                left: 24px;
+            }
+        }
+
+        /* Forma de arco para imágenes (muy en tendencia) */
+        .img-arch {
+            border-top-left-radius: 9999px;
+            border-top-right-radius: 9999px;
+        }
+        
+        /* Custom scrollbar para darle toque premium */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fdfbf7;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d4af37;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-sand text-midnight font-sans antialiased overflow-x-hidden">
+
+    <!-- HERO SECTION CON IMAGEN DE FONDO -->
+    <header class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
+        <!-- Imagen de fondo de la pareja (Unsplash) -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Fondo boda" class="w-full h-full object-cover" />
+            <!-- Overlay oscuro para que el texto sea legible -->
+            <div class="absolute inset-0 bg-midnight/70"></div>
+        </div>
+        
+        <div class="relative z-10 text-center px-6 text-sand max-w-4xl mx-auto mt-20">
+            <div class="mb-6 flex justify-center">
+                <i class="fa-solid fa-rings text-gold text-3xl"></i>
+            </div>
+            <p class="uppercase tracking-[0.3em] text-sm mb-6 text-gold">Tenemos el placer de invitarte</p>
+            <h1 class="font-serif text-6xl md:text-9xl mb-6 font-normal drop-shadow-lg">
+                Elena <br><span class="text-gold italic font-light text-5xl md:text-8xl">&</span> Mateo
+            </h1>
+            <p class="text-xl md:text-2xl font-light tracking-[0.2em] mb-12 uppercase border-y border-gold/30 py-4 inline-block">25 . Septiembre . 2026</p>
+            
+            <br>
+            <a href="#rsvp" class="inline-block bg-gold text-midnight px-10 py-4 font-semibold uppercase tracking-widest text-xs hover:bg-white transition duration-400 shadow-[0_0_20px_rgba(212,175,55,0.3)]">
+                Confirmar Asistencia
+            </a>
+        </div>
+        
+        <!-- Flecha hacia abajo animada -->
+        <div class="absolute bottom-10 z-10 text-gold animate-bounce">
+            <a href="#historia"><i class="fa-solid fa-chevron-down text-2xl"></i></a>
+        </div>
+    </header>
+
+    <!-- SECCIÓN BIENVENIDA / HISTORIA (Nuevo contenido) -->
+    <section id="historia" class="py-24 px-6 max-w-6xl mx-auto">
+        <div class="flex flex-col md:flex-row items-center gap-16">
+            <div class="md:w-1/2 relative">
+                <!-- Imagen en arco -->
+                <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Elena y Mateo" class="w-full h-[600px] object-cover img-arch shadow-2xl">
+                <!-- Marco decorativo offset -->
+                <div class="absolute inset-0 border border-gold img-arch transform translate-x-4 translate-y-4 -z-10"></div>
+            </div>
+            <div class="md:w-1/2 text-center md:text-left">
+                <h2 class="font-serif text-4xl md:text-5xl mb-6 text-midnight">Todo empezó con un café...</h2>
+                <div class="w-16 h-px bg-gold mb-8 mx-auto md:mx-0"></div>
+                <p class="font-light leading-relaxed text-midnightLight mb-6 text-lg">
+                    Han pasado seis años desde aquel primer encuentro casual. Seis años de viajes improvisados, mudanzas, adoptar a nuestro perro Baloo, aprender a cocinar juntos (con algunos incendios menores) y construir una vida de la que estamos profundamente enamorados.
+                </p>
+                <p class="font-light leading-relaxed text-midnightLight mb-8 text-lg">
+                    Ahora, queremos dar el siguiente gran paso, y no imaginamos hacerlo sin las personas que nos han visto crecer, apoyado en los momentos difíciles y brindado en las celebraciones. Vosotros sois nuestra familia elegida.
+                </p>
+                <p class="font-serif italic text-2xl text-gold">¡Prepárate para la fiesta del año!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CRONOGRAMA (TIMELINE AMPLIADO) -->
+    <section class="py-24 px-6 bg-sandDark relative">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="font-serif text-4xl md:text-5xl mb-4">El Cronograma</h2>
+                <p class="text-midnightLight font-light tracking-wide uppercase text-sm">Así transcurrirá nuestro gran día</p>
+            </div>
+
+            <div class="relative timeline-line mt-10">
+                <!-- Evento 1 -->
+                <div class="relative z-10 flex flex-col md:flex-row items-center justify-between mb-16 group">
+                    <div class="md:w-5/12 text-right md:pr-12 hidden md:block transition duration-300 transform group-hover:-translate-x-2">
+                        <h3 class="font-serif text-2xl text-gold mb-2">El Sí, Quiero</h3>
+                        <p class="font-light text-midnightLight text-sm leading-relaxed">
+                            Llegad con tiempo para coger un buen sitio. La ceremonia será breve, emotiva y prometemos no enrollarnos mucho con los votos. ¡Tened los pañuelos a mano por si acaso!
+                        </p>
+                    </div>
+                    <div class="w-12 h-12 bg-midnight border border-gold rounded-full flex items-center justify-center mx-auto md:mx-0 absolute left-[24px] md:left-1/2 transform -translate-x-1/2 shadow-[0_0_15px_rgba(212,175,55,0.4)] z-20">
+                        <span class="font-sans text-xs font-bold text-gold tracking-wider">18:00</span>
+                    </div>
+                    <div class="md:w-5/12 pl-16 md:pl-12 mt-4 md:mt-0 text-left w-full">
+                        <h3 class="font-serif text-2xl text-gold mb-2 md:hidden">El Sí, Quiero</h3>
+                        <p class="font-light text-midnightLight text-sm leading-relaxed md:hidden">Llegad con tiempo para coger un buen sitio. Ceremonia breve pero muy emotiva.</p>
+                        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Ceremonia" class="w-full h-48 object-cover rounded-sm shadow-md mt-4 md:mt-0 opacity-90 hover:opacity-100 transition">
+                    </div>
+                </div>
+
+                <!-- Evento 2 -->
+                <div class="relative z-10 flex flex-col md:flex-row items-center justify-between mb-16 group">
+                    <div class="md:w-5/12 text-right md:pr-12 w-full pl-16 md:pl-0 mt-4 md:mt-0 md:text-right text-left order-2 md:order-1">
+                        <h3 class="font-serif text-2xl text-gold mb-2 md:hidden">El Cóctel</h3>
+                        <p class="font-light text-midnightLight text-sm leading-relaxed md:hidden">Música en directo, aperitivos impresionantes y los primeros brindis al atardecer.</p>
+                        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Cóctel" class="w-full h-48 object-cover rounded-sm shadow-md mt-4 md:mt-0 opacity-90 hover:opacity-100 transition">
+                    </div>
+                    <div class="w-12 h-12 bg-midnight border border-gold rounded-full flex items-center justify-center mx-auto md:mx-0 absolute left-[24px] md:left-1/2 transform -translate-x-1/2 shadow-[0_0_15px_rgba(212,175,55,0.4)] z-20 order-1 md:order-2">
+                        <span class="font-sans text-xs font-bold text-gold tracking-wider">19:30</span>
+                    </div>
+                    <div class="md:w-5/12 pl-12 hidden md:block order-3 transition duration-300 transform group-hover:translate-x-2">
+                        <h3 class="font-serif text-2xl text-gold mb-2">El Cóctel</h3>
+                        <p class="font-light text-midnightLight text-sm leading-relaxed">
+                            Mientras nosotros nos hacemos las fotos de rigor, vosotros podéis empezar a disfrutar. Habrá cortador de jamón, música jazz en directo y estaciones de comida que os van a sorprender.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Evento 3 -->
+                <div class="relative z-10 flex flex-col md:flex-row items-center justify-between mb-16 group">
+                    <div class="md:w-5/12 text-right md:pr-12 hidden md:block transition duration-300 transform group-hover:-translate-x-2">
+                        <h3 class="font-serif text-2xl text-gold mb-2">El Banquete</h3>
+                        <p class="font-light text-midnightLight text-sm leading-relaxed">
+                            Pasad al salón de cristal. Hemos preparado un menú degustación cuidado al detalle para recargar energías. Y sí, el postre merece muchísimo la pena.
+                        </p>
+                    </div>
+                    <div class="w-12 h-12 bg-midnight border border-gold rounded-full flex items-center justify-center mx-auto md:mx-0 absolute left-[24px] md:left-1/2 transform -translate-x-1/2 shadow-[0_0_15px_rgba(212,175,55,0.4)] z-20">
+                        <span class="font-sans text-xs font-bold text-gold tracking-wider">21:00</span>
+                    </div>
+                    <div class="md:w-5/12 pl-16 md:pl-12 mt-4 md:mt-0 text-left w-full">
+                        <h3 class="font-serif text-2xl text-gold mb-2 md:hidden">El Banquete</h3>
+                        <p class="font-light text-midnightLight text-sm leading-relaxed md:hidden">Cena en el salón de cristal con menú degustación y sorpresas.</p>
+                        <img src="https://images.unsplash.com/photo-1505909182942-e2f09aee3e89?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Banquete" class="w-full h-48 object-cover rounded-sm shadow-md mt-4 md:mt-0 opacity-90 hover:opacity-100 transition">
+                    </div>
+                </div>
+
+                <!-- Evento 4 -->
+                <div class="relative z-10 flex flex-col md:flex-row items-center justify-between group">
+                    <div class="md:w-5/12 text-right md:pr-12 w-full pl-16 md:pl-0 mt-4 md:mt-0 md:text-right text-left order-2 md:order-1">
+                        <h3 class="font-serif text-2xl text-gold mb-2 md:hidden">La Gran Fiesta</h3>
+                        <p class="font-light text-midnightLight text-sm leading-relaxed md:hidden">Dj, barra libre, recena y baile hasta que salga el sol.</p>
+                        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=80" alt="Fiesta" class="w-full h-48 object-cover rounded-sm shadow-md mt-4 md:mt-0 opacity-90 hover:opacity-100 transition">
+                    </div>
+                    <div class="w-12 h-12 bg-midnight border border-gold rounded-full flex items-center justify-center mx-auto md:mx-0 absolute left-[24px] md:left-1/2 transform -translate-x-1/2 shadow-[0_0_15px_rgba(212,175,55,0.4)] z-20 order-1 md:order-2">
+                        <span class="font-sans text-xs font-bold text-gold tracking-wider">23:30</span>
+                    </div>
+                    <div class="md:w-5/12 pl-12 hidden md:block order-3 transition duration-300 transform group-hover:translate-x-2">
+                        <h3 class="font-serif text-2xl text-gold mb-2">La Gran Fiesta</h3>
+                        <p class="font-light text-midnightLight text-sm leading-relaxed">
+                            Abrimos pista con nuestro primer baile (o el intento de ello). A partir de ahí: barra libre premium, DJ residente, fotomatón y una recena con hamburguesas y churros con chocolate de madrugada. ¡Prepara calzado cómodo!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAPAS E INDICACIONES (Estilo tarjetas premium) -->
+    <section class="py-24 bg-midnight text-sand px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="font-serif text-4xl md:text-5xl mb-4 text-gold">Ubicaciones</h2>
+                <div class="w-16 h-px bg-gold/50 mx-auto"></div>
+                <p class="mt-4 font-light text-sandDark max-w-2xl mx-auto text-lg">Ambos eventos se celebrarán a menos de 10 minutos de distancia para vuestra máxima comodidad. Aquí tenéis todos los detalles.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Card Ceremonia -->
+                <div class="bg-midnightLight border border-gold/20 p-1 flex flex-col hover:border-gold transition duration-500">
+                    <img src="https://images.unsplash.com/photo-1541123437800-1bb1317badc2?auto=format&fit=crop&w=800&q=80" alt="Iglesia" class="w-full h-64 object-cover">
+                    <div class="p-8 text-center flex-grow flex flex-col justify-between">
+                        <div>
+                            <p class="text-gold text-sm tracking-widest uppercase mb-2">La Ceremonia</p>
+                            <h3 class="font-serif text-3xl mb-4 text-white">Basílica de Santa María</h3>
+                            <p class="mb-8 font-light text-sandDark text-sm leading-relaxed">
+                                Un lugar histórico y muy especial para nosotros. El aparcamiento está habilitado en la plaza trasera de forma exclusiva para los invitados de la boda.<br><br>
+                                <em>Plaza de la Virgen, s/n. Centro Histórico.</em>
+                            </p>
+                        </div>
+                        <div class="flex flex-col gap-3">
+                            <a href="#" class="bg-gold text-midnight px-6 py-3 text-sm uppercase tracking-widest font-semibold hover:bg-white transition"><i class="fa-brands fa-google mr-2"></i>Ruta en Google Maps</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Banquete -->
+                <div class="bg-midnightLight border border-gold/20 p-1 flex flex-col hover:border-gold transition duration-500">
+                    <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Finca" class="w-full h-64 object-cover">
+                    <div class="p-8 text-center flex-grow flex flex-col justify-between">
+                        <div>
+                            <p class="text-gold text-sm tracking-widest uppercase mb-2">La Celebración</p>
+                            <h3 class="font-serif text-3xl mb-4 text-white">Palacio de los Duques</h3>
+                            <p class="mb-8 font-light text-sandDark text-sm leading-relaxed">
+                                Una espectacular finca del siglo XIX rodeada de viñedos. Tras pasar la puerta principal en el coche, seguid las indicaciones del personal hacia el parking de invitados.<br><br>
+                                <em>Carretera Nacional V, Km 45.</em>
+                            </p>
+                        </div>
+                        <div class="flex flex-col gap-3">
+                            <a href="#" class="bg-gold text-midnight px-6 py-3 text-sm uppercase tracking-widest font-semibold hover:bg-white transition"><i class="fa-brands fa-google mr-2"></i>Ruta en Google Maps</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INFO: ALOJAMIENTO, TRANSPORTE Y DRESS CODE -->
+    <section class="py-24 px-6 max-w-6xl mx-auto border-b border-gray-200">
+        <div class="grid md:grid-cols-3 gap-12 text-center">
+            
+            <!-- Transporte -->
+            <div class="p-6">
+                <i class="fa-solid fa-bus text-4xl text-midnight mb-6"></i>
+                <h3 class="font-serif text-2xl mb-4 text-midnight">Servicio de Autobús</h3>
+                <p class="text-sm font-light text-midnightLight leading-relaxed mb-4">
+                    Queremos que disfrutéis sin preocuparos por conducir. Pondremos a vuestra disposición autobuses con los siguientes horarios:
+                </p>
+                <ul class="text-sm font-light text-midnightLight text-left inline-block">
+                    <li class="mb-2"><strong class="text-midnight">Ida:</strong> 17:00h desde la Plaza del Ayuntamiento.</li>
+                    <li class="mb-2"><strong class="text-midnight">Vuelta 1:</strong> 01:30h (tras la recena).</li>
+                    <li><strong class="text-midnight">Vuelta 2:</strong> 04:30h (cierre de fiesta).</li>
+                </ul>
+            </div>
+
+            <!-- Alojamiento -->
+            <div class="p-6 md:border-x border-gray-200">
+                <i class="fa-solid fa-bed text-4xl text-midnight mb-6"></i>
+                <h3 class="font-serif text-2xl mb-4 text-midnight">Hoteles Recomendados</h3>
+                <p class="text-sm font-light text-midnightLight leading-relaxed mb-4">
+                    Para los que venís de fuera, hemos bloqueado habitaciones con tarifas especiales (código: BODAELENAYMATEO). Tened en cuenta que es temporada alta, ¡reservad pronto!
+                </p>
+                <ul class="text-sm font-light text-midnightLight text-left inline-block">
+                    <li class="mb-2"><strong class="text-midnight">Hotel Palace *****:</strong> A 5 min de la iglesia. Tlf: 912345678.</li>
+                    <li><strong class="text-midnight">Hostal El Mirador ***:</strong> Opción más económica en el centro.</li>
+                </ul>
+            </div>
+
+            <!-- Dress Code -->
+            <div class="p-6">
+                <i class="fa-solid fa-chess-queen text-4xl text-midnight mb-6"></i>
+                <h3 class="font-serif text-2xl mb-4 text-midnight">Dress Code</h3>
+                <p class="text-sm font-light text-midnightLight leading-relaxed mb-4">
+                    La etiqueta para el evento es <strong>Gala / Etiqueta Oscura</strong> (Dark Suit / Long Dress).
+                </p>
+                <p class="text-sm font-light text-midnightLight leading-relaxed italic border-l-2 border-gold pl-4 text-left">
+                    "Agradecemos a los señores el uso de traje oscuro y corbata, y a las señoras vestido largo o midi. Por tradición, os rogamos evitar los tonos blancos o crudos."
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- LISTA DE BODAS (Discreta y Elegante) -->
+    <section class="py-20 bg-sand px-6 text-center">
+        <div class="max-w-3xl mx-auto border border-gold/30 p-10 md:p-16 relative">
+            <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-sand px-4">
+                <i class="fa-solid fa-envelope-open-text text-3xl text-gold"></i>
+            </div>
+            
+            <h2 class="font-serif text-3xl mb-6 text-midnight">Lista de Bodas</h2>
+            <p class="font-light mb-8 text-midnightLight leading-relaxed text-lg">
+                El regalo más grande que nos podéis hacer es acompañarnos en este día tan importante para nosotros, vuestra presencia lo es todo.<br><br>
+                Como ya tenemos nuestro hogar montado, si aún así deseáis hacernos un obsequio, nos encantaría que nos ayudarais a hacer realidad la luna de miel de nuestros sueños: <strong>Un safari por Tanzania y Zanzíbar.</strong>
+            </p>
+            
+            <button onclick="document.getElementById('cuenta-bancaria').classList.toggle('hidden')" class="bg-midnight text-sand px-8 py-3 uppercase tracking-widest text-xs hover:bg-gold hover:text-midnight transition duration-300">
+                Ver Detalles Bancarios
+            </button>
+            
+            <div id="cuenta-bancaria" class="hidden mt-8 p-6 bg-white border border-gray-100 shadow-inner">
+                <p class="text-sm text-midnightLight mb-2 uppercase tracking-widest">Titulares: Elena y Mateo</p>
+                <p class="font-mono text-xl md:text-2xl tracking-widest text-midnight">ESXX 1234 5678 9012 3456</p>
+                <p class="text-xs text-gray-400 mt-4 italic">Concepto sugerido: Vuestro nombre + Luna de Miel</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP FORMULARIO AVANZADO -->
+    <section id="rsvp" class="py-24 px-6 bg-midnight relative overflow-hidden">
+        <!-- Decoración fondo oscuro -->
+        <div class="absolute top-[-20%] right-[-10%] w-96 h-96 border-[40px] border-gold/10 rounded-full"></div>
+        <div class="absolute bottom-[-20%] left-[-10%] w-[500px] h-[500px] border-[2px] border-gold/20 rounded-full"></div>
+
+        <div class="max-w-4xl mx-auto relative z-10">
+            <div class="bg-sand p-8 md:p-16 shadow-2xl rounded-sm">
+                <div class="text-center mb-12">
+                    <h2 class="font-serif text-4xl md:text-5xl mb-4 text-midnight">R.S.V.P.</h2>
+                    <div class="w-12 h-px bg-gold mx-auto mb-4"></div>
+                    <p class="text-sm font-light text-midnightLight tracking-widest uppercase">Por favor, confirma antes del 1 de Agosto</p>
+                </div>
+
+                <form action="#" method="POST" onsubmit="event.preventDefault(); alert('¡Frontend funcionando! Datos listos para enviar al backend de mndesignweb.');">
+                    
+                    <div class="grid md:grid-cols-2 gap-8 mb-8">
+                        <!-- Invitado Principal -->
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-widest mb-2 text-midnight">Nombre y Apellidos *</label>
+                            <input type="text" required class="w-full border-b border-midnight/30 py-2 focus:outline-none focus:border-gold bg-transparent transition font-light" placeholder="Ej: Laura Martínez">
+                        </div>
+                        
+                        <!-- Teléfono/Email (Nuevo campo) -->
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-widest mb-2 text-midnight">Email de Contacto *</label>
+                            <input type="email" required class="w-full border-b border-midnight/30 py-2 focus:outline-none focus:border-gold bg-transparent transition font-light" placeholder="Para enviarte recordatorios">
+                        </div>
+                    </div>
+
+                    <!-- Asistencia -->
+                    <div class="mb-10 bg-white p-6 border border-gray-100 shadow-sm text-center">
+                        <p class="block text-sm font-semibold mb-6 text-midnight uppercase tracking-widest">¿Podrás acompañarnos? *</p>
+                        <div class="flex flex-col sm:flex-row justify-center gap-6 sm:gap-12">
+                            <label class="flex items-center justify-center cursor-pointer group">
+                                <div class="relative flex items-center">
+                                    <input type="radio" name="asistencia" value="si" class="peer sr-only" required onclick="document.getElementById('detalles-asistencia').classList.remove('hidden')">
+                                    <div class="w-5 h-5 border-2 border-midnight rounded-full peer-checked:bg-gold peer-checked:border-gold transition mr-3 flex items-center justify-center"></div>
+                                    <span class="font-serif text-xl text-midnightLight group-hover:text-gold transition">Sí, celebraré con vosotros</span>
+                                </div>
+                            </label>
+                            <label class="flex items-center justify-center cursor-pointer group">
+                                <div class="relative flex items-center">
+                                    <input type="radio" name="asistencia" value="no" class="peer sr-only" onclick="document.getElementById('detalles-asistencia').classList.add('hidden')">
+                                    <div class="w-5 h-5 border-2 border-midnight rounded-full peer-checked:bg-midnight peer-checked:border-midnight transition mr-3 flex items-center justify-center"></div>
+                                    <span class="font-serif text-xl text-midnightLight group-hover:text-midnight transition">Lo siento, no podré ir</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Detalles que se muestran solo si asiste -->
+                    <div id="detalles-asistencia" class="hidden space-y-8">
+                        
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <!-- Menú Invitado Principal -->
+                            <div>
+                                <label class="block text-xs font-semibold uppercase tracking-widest mb-2 text-midnight">Tu Menú *</label>
+                                <select class="w-full border-b border-midnight/30 py-2 focus:outline-none focus:border-gold bg-transparent font-light" required>
+                                    <option value="" disabled selected>Selecciona tu opción principal...</option>
+                                    <option value="tradicional">Menú Tradicional (Carne/Pescado)</option>
+                                    <option value="vegano">Menú Vegano / Vegetariano</option>
+                                </select>
+                            </div>
+
+                            <!-- Alergias Principal -->
+                            <div>
+                                <label class="block text-xs font-semibold uppercase tracking-widest mb-2 text-midnight">Alergias o Intolerancias</label>
+                                <input type="text" class="w-full border-b border-midnight/30 py-2 focus:outline-none focus:border-gold bg-transparent transition font-light" placeholder="Ej: Celíaco, alergia al marisco...">
+                            </div>
+                        </div>
+                        
+                        <!-- Autobús -->
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-widest mb-3 text-midnight">¿Utilizarás el servicio de autobús?</label>
+                            <div class="flex gap-6 font-light">
+                                <label><input type="radio" name="bus" value="si" class="mr-2 accent-gold"> Sí, plaza de ida y vuelta</label>
+                                <label><input type="radio" name="bus" value="no" class="mr-2 accent-gold"> No, iré en mi propio coche</label>
+                            </div>
+                        </div>
+
+                        <!-- Canción -->
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-widest mb-2 text-midnight">Canción que te hará salir a la pista sí o sí</label>
+                            <input type="text" class="w-full border-b border-midnight/30 py-2 focus:outline-none focus:border-gold bg-transparent transition font-light italic" placeholder="Título y Artista">
+                        </div>
+
+                        <hr class="border-gold/30 my-8">
+
+                        <!-- Contenedor de Acompañantes Dinámico -->
+                        <div id="contenedor-acompanantes"></div>
+
+                        <!-- Botón Añadir Acompañante -->
+                        <button type="button" onclick="agregarAcompanante()" class="text-sm font-semibold uppercase tracking-widest text-gold hover:text-midnight transition flex items-center border border-gold px-4 py-2 hover:bg-gold">
+                            <i class="fa-solid fa-plus mr-2"></i> Añadir Acompañante / Niño
+                        </button>
+
+                    </div>
+
+                    <div class="mt-12 text-center">
+                        <button type="submit" class="bg-midnight text-gold px-12 py-4 font-semibold uppercase tracking-widest text-sm hover:bg-gold hover:text-midnight transition duration-300 shadow-xl w-full md:w-auto border border-transparent hover:border-midnight">
+                            Enviar Confirmación
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERÍA DE RECUERDOS (Estilo Masonry visual simulado) -->
+    <section class="py-24 px-6 bg-sand border-t border-gray-200">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="font-serif text-4xl md:text-5xl mb-4 text-midnight">Capturando Momentos</h2>
+            <p class="font-light text-midnightLight mb-12 max-w-2xl mx-auto text-lg">
+                La perspectiva de nuestro fotógrafo es increíble, pero la vuestra es irremplazable. Al día siguiente de la boda activaremos este portal para que podáis subir todos los vídeos y fotos que hagáis con vuestros móviles.
+            </p>
+            
+            <div class="relative bg-midnight p-1 md:p-2 rounded-sm max-w-4xl mx-auto">
+                <!-- Imagen placeholder de polaroids/galería -->
+                <img src="https://images.unsplash.com/photo-1478146896981-b80fe463b330?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Galería Bloqueada" class="w-full h-80 object-cover opacity-40 grayscale">
+                
+                <div class="absolute inset-0 flex flex-col items-center justify-center text-white">
+                    <i class="fa-solid fa-lock text-4xl text-gold mb-4"></i>
+                    <h3 class="font-serif text-2xl mb-2">Galería Privada Bloqueada</h3>
+                    <p class="text-sm font-light mb-6">Disponible el 26 de Septiembre de 2026</p>
+                    <button disabled class="border border-white/50 text-white/50 px-8 py-3 uppercase tracking-widest text-xs cursor-not-allowed">
+                        Subir Archivos
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-midnight text-sand text-center py-12 border-t-4 border-gold">
+        <div class="flex justify-center items-center gap-4 mb-6">
+            <div class="w-12 h-px bg-gold/50"></div>
+            <p class="font-serif text-3xl">E <span class="text-gold italic">&</span> M</p>
+            <div class="w-12 h-px bg-gold/50"></div>
+        </div>
+        <p class="text-xs font-light tracking-[0.3em] uppercase text-sandDark">Nos vemos pronto</p>
+    </footer>
+
+    <!-- JAVASCRIPT PARA EL FORMULARIO (Comportamiento Frontend) -->
+    <script>
+        let contadorAcompanantes = 0;
+
+        function agregarAcompanante() {
+            contadorAcompanantes++;
+            const contenedor = document.getElementById('contenedor-acompanantes');
+            
+            const html = `
+                <div class="bg-white p-6 mb-6 relative border border-gray-100 shadow-sm" id="acompanante-${contadorAcompanantes}">
+                    <button type="button" onclick="eliminarAcompanante(${contadorAcompanantes})" class="absolute top-4 right-4 text-gray-300 hover:text-rust transition">
+                        <i class="fa-solid fa-xmark text-xl"></i>
+                    </button>
+                    
+                    <h4 class="font-serif text-xl mb-4 text-midnight border-b border-gray-100 pb-2">Acompañante ${contadorAcompanantes}</h4>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-4">
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-widest mb-1 text-midnight">Nombre completo *</label>
+                            <input type="text" required class="w-full border-b border-midnight/30 py-1 focus:outline-none focus:border-gold bg-transparent font-light text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-widest mb-1 text-midnight">Alergias</label>
+                            <input type="text" class="w-full border-b border-midnight/30 py-1 focus:outline-none focus:border-gold bg-transparent font-light text-sm" placeholder="Opcional">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-widest mb-1 text-midnight">Menú *</label>
+                        <select class="w-full border-b border-midnight/30 py-1 focus:outline-none focus:border-gold bg-transparent font-light text-sm" required>
+                            <option value="" disabled selected>Seleccionar menú...</option>
+                            <option value="tradicional">Menú Tradicional</option>
+                            <option value="vegano">Menú Vegano/Vegetariano</option>
+                            <option value="infantil">Menú Infantil (Menores 12 años)</option>
+                        </select>
+                    </div>
+                </div>
+            `;
+            
+            contenedor.insertAdjacentHTML('beforeend', html);
+        }
+
+        function eliminarAcompanante(id) {
+            const elemento = document.getElementById(`acompanante-${id}`);
+            if(elemento) {
+                elemento.remove();
+            }
+        }
+    </script>
+</body>
+</html>
